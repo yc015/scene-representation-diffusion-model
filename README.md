@@ -1,4 +1,4 @@
-# scene-representation-diffusion-model.github.io
+# Beyond Surface Statistics: Scene Representations in a Latent Diffusion Model
 Linear probe found controllable representations of scene attributes in a text-to-image diffusion model
 
 Project page of "Beyond Surface Statistics: Scene Representations in a Latent Diffusion Model"
