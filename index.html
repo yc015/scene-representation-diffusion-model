@@ -1,0 +1,441 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		font-weight:300;
+		font-size:18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+	
+	h1 {
+		font-size:32px;
+		font-weight:300;
+	}
+	
+	.disclaimerbox {
+		background-color: #eee;		
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	a:link,a:visited
+	{
+		color: #1367a7;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #208799;
+	}
+	
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+	
+	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+		15px 15px 0 0px #fff, /* The fourth layer */
+		15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+		20px 20px 0 0px #fff, /* The fifth layer */
+		20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+		25px 25px 0 0px #fff, /* The fifth layer */
+		25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
+
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+	
+	.vert-cent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	hr
+	{
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+</style>
+
+<html>
+<head>
+	<title>Beyond Surface Statistics: Scene Representations in a Latent Diffusion Model</title>
+	<meta property="og:image" content="Path to my teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+	<meta property="og:title" content="Creative and Descriptive Paper Title." />
+	<meta property="og:description" content="Paper description." />
+
+	<!-- Get from Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src=""></script> 
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-75863369-6');
+	</script>
+</head>
+
+<body>
+	<br>
+	<center>
+		<span style="font-size:36px">Beyond Surface Statistics: <br> Scene Representations in a Latent Diffusion Model</span>
+		<table align=center width=600px>
+			<table align=center width=600px>
+				<tr>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:24px"><a href="https://yc015.github.io/">Yida Chen</a></span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:24px"><a href="http://www.fernandaviegas.com/">Fernanda Viegas</a></span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:24px"><a href="https://www.bewitched.com/">Martin Wattenberg</a></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+			<table align=center width=250px>
+				<tr>
+					<td align=center width=120px>
+						<center>
+							<span style="font-size:24px"><a href='https://arxiv.org/abs/2306.05720'>[Paper]</a></span>
+						</center>
+					</td>
+					<td align=center width=120px>
+						<center>
+							<span style="font-size:24px"><a href=''>[GitHub]</a></span><br>
+						</center>
+					</td>
+				</tr>
+			</table>
+		</table>
+	</center>
+
+	<center>
+		<table align=center width=850px>
+			<tr>
+				<td width=260px>
+					<center>
+						<img class="round" style="width:500px" src="./resources/teaser.png"/>
+					</center>
+				</td>
+			</tr>
+		</table>
+		<table align=center width=850px>
+			<tr>
+				<td>
+					Linear probes found strong representations of foreground and scene depth in a pretrained 2D Stable Diffusion model. These scene representations (2<sup>nd</sup> row & 4<sup>th</sup> row) emerge in the early denoising process — even though the input latents are still noisy, and the decoded images (1<sup>st</sup> row) are not human understandable.</a>.
+				</td>
+			</tr>
+		</table>
+	</center>
+
+	<hr>
+
+	<table align=center width=850px>
+		<center><h1>Abstract</h1></center>
+		<tr>
+			<td>
+				&emsp;Latent diffusion models (LDMs) exhibit an impressive ability to produce realistic images, yet the inner workings of these models remain mysterious. Even when trained purely on images without explicit depth information, they typically output coherent pictures of 3D scenes. In this work, we investigate a basic interpretability question: does an LDM create and use an internal representation of simple scene geometry? Using linear probes, we find evidence that the internal activations of the LDM encode linear representations of both 3D depth data and a salient-object / background distinction. These representations appear surprisingly early in the denoising process—well before a human can easily make sense of the noisy images. Intervention experiments further indicate these representations play a causal role in image synthesis, and may be used for simple high-level editing of an LDM's output.
+			</td>
+		</tr>
+	</table>
+	<br>
+	<hr>
+
+	<center><h1>Linear internal representations of <br> foreground / background and depth</h1></center>
+
+	<table align=center width=400px>
+		<tr>
+			<td align=center width=400px>
+				<center>
+					<td><img class="round" style="width:550px" src="./resources/probing_prediction.png"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					&emsp;Does 2D image generative diffusion model understand the geometry inside its generated images? Can it see beyond the 2D matrix of pixels and distinguish the depth of objects in its synthesized scenes? The answer to these questions seem to be <b>"Yes"</b> given the evidence we found using linear probing.
+					<br>
+					<br>
+					Linear probes find dimensions of foreground and scene depth in the activation space of a latent diffusion model (LDM). A linear probe was trained to predict the foreground and scene depth using the neural network's intermediate representations of the input, namely, the intermediate activations. 
+					<br>
+					<br>
+					In the figure above, the left sides of two columns display the images sampled from LDM. The right sides are the predictions of the linear probes that took the LDM's self-attention layer activations as input.
+				</td>
+			</tr>
+		</center>
+	</table>
+	<br>
+
+	<center><h1>Optimization on Linear Probes: Finding Dimensions of Features</h1></center>
+
+	<table align=center width=400px>
+		<tr>
+			<td align=center width=400px>
+				<center>
+					<td><img class="round" style="width:600px" src="./resources/linear_probing.png"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					&emsp;A linear probing classifier can be seen as a matrix of trainable weights. We apply this matrix to project the intermeidate activations of a diffusion model, and the results of projection are used as logits to predict the properties of the output image.
+					<br>
+					<br>
+					The optimization on the linear probe can be seen as searching a <b>linear axis</b> inside activation space that best aligns with the target property — foreground or scene depth in our case.
+					<br>
+					<br>
+					Linear probe is a common technique for interpreting the learned internal representations of a neural network. 
+				</td>
+			</tr>
+		</center>
+	</table>
+	<br>
+	<hr>
+
+	<center><h1>Text-to-Image Generation with Intervention</h1></center>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					&emsp;The high accuracy of linear probing classifier indicates a high mutual information between the model's internal representations and the scene property of its generated images. However, whether this mutual dependency implies a causation between model's output and its internal representation or merely a strong correlation needs to be further tested.
+					<br>
+					<br>
+					How to test causality? We leveraged a rather simple setting. We shifted the activations of diffusion model on the feature axis identified by linear probes, and see how this translation on activation vectors affects the model's output.
+				</td>
+			</tr>
+		</center>
+	</table>
+	<table align=center width=400px>
+		<tr>
+			<td align=center width=400px>
+				<center>
+					<td><img class="round" style="width:750px" src="./resources/method_diagram.png"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					We implemented this intervention as a new text-to-image generation method. 
+					<br>
+					<br>
+					In the original image generation pipeline (upper part of the figure above), we train linear probes on the model's intermediate activations to predict the foreground of a generated image.
+					<br>
+					<br>
+					In the intervened image generation pipeline (lower part of the figure), we modify the intermediate activations using the projection learned by probe so a pixel's foreground and background property changes to match a new foreground map d<sup>'</sup><sub>b</sub>. We made <b>no changes on the model's weights, initial latent vectors, random seed, and prompt</b>.
+					<br>
+					<br>
+					Ideally, if a causal link between the internal Representation and scene property exists, changing the internal representation of that scene property should affect that property in the generated image accordingly.
+				</td>
+			</tr>
+		</center>
+	</table>
+	<br>
+	<hr>
+
+	<center><h1>Generate videos of moving objects using intervention</h1></center>
+
+	<table align=center width=800px>
+		<center>
+			<tr>
+				<td>
+					As shown in our paper, the intervention has causal effects on the model's output. The scene depth of an image can be rewritten by our intervention on model's intermediate activation. We can even generate a video of moving motorcycle by continuously translating the foreground representation on the 2D plane. 
+				</td>
+			</tr>
+		</center>
+	</table>
+	<table align=center width=400px>
+		<tr>
+			<td align=center width=400px>
+				<center>
+					<td><img class="round" style="width:800px" src="./resources/application_of_intervention.png"/></td>
+					
+				</center>
+			</td>
+		</tr>
+	</table>
+	<table align=center width=800px>
+		<center>
+			<tr>
+				<td>
+					<center>All intervened outputs are sampled from the same initial latent vector and prompt as the origina output.</center>
+
+					<br>
+					<br>
+					More examples of videos featuring moving objects sampled from 2D Stable Diffusion model using our intervention technique.
+				</td>
+			</tr>
+		</center>
+	</table>
+	<table align=center width=850px>
+		<tr>
+			<td align=center width=300px>
+				
+				<center>
+					<td>
+						<figure>
+							<figcaption><center>Prompt = Southern living container plants</figcaption>
+							<img class="round" style="width:400px" src="./resources/southern_container_plants.gif"/>
+						</figure>
+						
+					</td>
+					<td>
+						<figure>
+							<figcaption><center>Prompt = Elissa Leather Chain Strap Shoulder Bag...</center></figcaption>
+							<img class="round" style="width:400px" src="./resources/macy_handbag.gif"/>
+						</figure>
+						
+					</td>
+				</center>
+			</td>
+		</tr>
+		<center>
+			<tr>
+				<td>
+
+					<br>
+					<br>
+
+				</td>
+			</tr>
+		</center>
+		
+	</table>
+
+	<!-- <table align=center width=400px>
+		<tr>
+			<td align=center width=400px>
+				<center>
+					<td><img class="round" style="width:600px" src="./resources/scene_depth_intervention.png"/></td>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					&emsp;
+				</td>
+			</tr>
+		</center>
+	</table> -->
+	<br>
+	<hr>
+
+	<table align=center width=450px>
+		<center><h1>Paper and Supplementary Material</h1></center>
+		<tr>
+			<td><a href=""><img class="layered-paper-big" style="height:175px" src="./resources/paper.png"/></a></td>
+			<td><span style="font-size:14pt">Y. Chen, F. Viegas, <br> M. Wattenberg<br>
+				<b>Beyond Surface Statistics: <br> Scene Representations in a Latent Diffusion Model</b><br>
+				(hosted on <a href="https://arxiv.org/abs/2306.05720">ArXiv</a>)<br>
+				<!-- (<a href="./resources/camera-ready.pdf">camera ready</a>)<br> -->
+				<span style="font-size:4pt"><a href=""><br></a>
+				</span>
+			</td>
+		</tr>
+	</table>
+	<br>
+
+	<table align=center width=600px>
+		<tr>
+			<td><span style="font-size:14pt"><center>
+				<a href="./resources/bibtex.txt">[Bibtex]</a>
+			</center></td>
+		</tr>
+	</table>
+
+	<hr>
+	<br>
+
+	<table align=center width=900px>
+		<tr>
+			<td width=400px>
+				<left>
+					<center><h1>Acknowledgements</h1></center>
+					This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
+				</left>
+			</td>
+		</tr>
+	</table>
+
+<br>
+</body>
+</html>
+
