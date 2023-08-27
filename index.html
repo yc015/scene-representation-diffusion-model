@@ -224,7 +224,7 @@
 		<center>
 			<tr>
 				<td>
-					&emsp;Does 2D image generative diffusion model understand the geometry inside its generated images? Can it see beyond the 2D matrix of pixels and distinguish the depth of objects in its synthesized scenes? The answer to these questions seem to be <b>"Yes"</b> given the evidence we found using linear probing.
+					&emsp;Did 2D image generative diffusion model learn the geometry inside its generated images? Can it see beyond the 2D matrix of pixels and distinguish the depth of objects in its synthesized scenes? The answer to these questions seem to be <b>"Yes"</b> given the evidence we found using linear probing.
 					<br>
 					<br>
 					Linear probes find dimensions of foreground and scene depth in the activation space of a latent diffusion model (LDM). A linear probe was trained to predict the foreground and scene depth using the neural network's intermediate representations of the input, namely, the intermediate activations. 
@@ -301,7 +301,7 @@
 					In the intervened image generation pipeline (lower part of the figure), we modify the intermediate activations using the projection learned by probe so a pixel's foreground and background property changes to match a new foreground map d<sup>'</sup><sub>b</sub>. We made <b>no changes on the model's weights, initial latent vectors, random seed, and prompt</b>.
 					<br>
 					<br>
-					Ideally, if a causal link between the internal Representation and scene property exists, changing the internal representation of that scene property should affect that property in the generated image accordingly.
+					Ideally, if a causal link between the internal representation and scene geometry exists, changing the internal representation of that scene property should affect that property in the generated image accordingly.
 				</td>
 			</tr>
 		</center>
@@ -309,7 +309,7 @@
 	<br>
 	<hr>
 
-	<center><h1>Generate videos of moving objects using intervention</h1></center>
+	<center><h1>Generate image sequences of moving objects using intervention</h1></center>
 
 	<table align=center width=800px>
 		<center>
