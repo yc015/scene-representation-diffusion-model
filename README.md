@@ -22,3 +22,12 @@ The gifs are sampled using the original text-to-image diffusion model without fi
 
 
 **I wish to upload our pretrained probing classifier weights soon. Hopefully by the end of next weel. :)**
+
+If you find the source code of this repo helpful, please cite  
+
+    @article{chen2023beyond,
+      title={Beyond Surface Statistics: Scene Representations in a Latent Diffusion Model},
+      author={Chen, Yida and Vi{\'e}gas, Fernanda and Wattenberg, Martin},
+      journal={arXiv preprint arXiv:2306.05720},
+      year={2023}
+    }
