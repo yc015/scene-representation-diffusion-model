@@ -12,8 +12,8 @@ See [application_of_intervention.ipynb](https://github.com/yc015/scene-represent
 ### Some examples:
 
 <div style="display:flex; flex-wrap:wrap; padding: 0; margin: 0;">
-  <img src="https://github.com/yc015/scene-representation-diffusion-model/blob/main/resources/southern_container_plants.gif" width="436px" padding="0" margin="0"/>
-  <img src="https://github.com/yc015/scene-representation-diffusion-model/blob/main/resources/macy_handbag.gif" width="436px" padding="0" margin="0"/>
+  <img src="https://github.com/yc015/scene-representation-diffusion-model/blob/main/resources/southern_container_plants.gif" width="300px" padding="0" margin="0"/>
+  <img src="https://github.com/yc015/scene-representation-diffusion-model/blob/main/resources/macy_handbag.gif" width="300px" padding="0" margin="0"/>
 </div>
 
 The gifs are sampled using the original text-to-image diffusion model without fine-tuning. All frames are generated using the **same prompt, random seed (inital latent vectors), and model**. We edited the intermediate activations of the latent diffusion model when it generated the images so its internal representtaion of foreground match with our reference mask. See [notebook](https://github.com/yc015/scene-representation-diffusion-model/blob/main/application_of_intervention.ipynb) for implementation details.
