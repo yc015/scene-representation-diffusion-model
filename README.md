@@ -22,7 +22,7 @@ The gifs are sampled using the original text-to-image diffusion model without fi
 
 
 ## Probe Weights:
-Unzip the probe_checkpoints.zip to acquire all probe weights trained by us. The probe weights in the unzipped folder should be sufficient for you to run all experiments shown in our paper. 
+Unzip the [probe_checkpoints.zip](https://github.com/yc015/scene-representation-diffusion-model/blob/main/probe_checkpoints.zip) to acquire all probe weights trained by us. The probe weights in the unzipped folder should be sufficient for you to run all experiments shown in the paper. 
 
 
 ## Citation
